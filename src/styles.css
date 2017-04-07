@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  background-image: url(http://rs1213.pbsrc.com/albums/cc464/springman99/sport-graphics-curling-559173.gif~c200);
+  text-align: center;
+}
+
+button {
+  text-align: center;
+}
+
+h5:hover {
+  text-decoration: underline;
+  color: #535099;
+}
+
+p {
+  padding-bottom: 10px;
+}
+
+p::first-letter {
+  font-size: 120%;
+}
+
+.panel {
+  padding: 50px;
+}
+
+#dumb-curling-gif{
+  border: 5px solid black;
+  position: relative;
+  margin: 20vw;
+  margin-top: 15vh;
+}

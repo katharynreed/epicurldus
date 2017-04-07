@@ -1,9 +1,10 @@
-<div class="container">
+<div class="container panel panel-default">
   <div class="fail" *ngIf="updateFail">
     <h3>Please enter all required information.</h3>
   </div>
 
   <h1>{{memberToDisplay.name}}</h1>
+  <h3>Main Skill: {{memberToDisplay.skill}}</h3>
 
   <button class="btn" (click)="editClick()">Edit Team Member</button>
   <button class="btn" (click)="beginDeletingMember()">Kick 'em off the Team</button>

@@ -1,27 +1,30 @@
-<select class="btn" (change)="onChange($event.target.value)">
-  <option value="allMembers" selected="selected">All Members</option>
-  <option value="lead">Lead Member</option>
-  <option value="second">Second Position</option>
-  <option value="third">Third Position (or Second Skip)</option>
-  <option value="skip">Skip</option>
-</select>
+<div class="panel panel-default">
+  <select class="btn" (change)="onChange($event.target.value)">
+    <option value="allMembers" selected="selected">All Members</option>
+    <option value="lead">Lead Member</option>
+    <option value="second">Second Position</option>
+    <option value="third">Third Position (or Second Skip)</option>
+    <option value="skip">Skip</option>
+  </select>
 
-<ul>
-  <li *ngFor="let member of members | position:filterByPosition" (click)="goToDetailPage(member)">{{member.name}} | {{member.position}}</li>
-</ul>
 
-<button class="btn" (click)="showNewMemberForm()">Add a Member</button>
-<div *ngIf="newMemberClicked">
-  <label>New Member Name:</label>
-  <input #newName><br>
-  <label>Member Position:</label>
-  <select class="btn" #newPosition>
-    <option value="Lead">Lead</option>
-    <option value="Second">Second</option>
-    <option value="Third">Third (or Second Skip)</option>
-    <option value="Skip">Skip</option>
-  </select><br>
-  <label>Member Skill:</label>
-  <input #newSkill><br>
-  <button class="btn" (click)="submitNewMember(newName.value, newPosition.value, newSkill.value); newName.value=''; newPosition.value=''; newSkill.value='';">Submit New Member</button>
+  <h5 *ngFor="let member of members | position:filterByPosition" (click)="goToDetailPage(member)">{{member.name}} | {{member.position}}</h5>
+
+
+  <button class="btn" (click)="showNewMemberForm()">Add a Member</button>
+  <div *ngIf="newMemberClicked">
+    <label>New Member Name:</label>
+    <input #newName><br>
+    <label>Member Position:</label>
+    <select class="btn" #newPosition>
+      <option value="Lead">Lead</option>
+      <option value="Second">Second</option>
+      <option value="Third">Third (or Second Skip)</option>
+      <option value="Skip">Skip</option>
+    </select><br>
+    <label>Member Skill:</label>
+    <input #newSkill><br>
+    <button class="btn" (click)="submitNewMember(newName.value, newPosition.value, newSkill.value); newName.value=''; newPosition.value=''; newSkill.value='';">Submit New Member</button>
+  </div>
+
 </div>
