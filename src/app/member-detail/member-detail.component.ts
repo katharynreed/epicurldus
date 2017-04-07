@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 export class MemberDetailComponent implements OnInit {
   memberId;
   memberToDisplay;
+  updateFail = false;
   editClicked = false;
   member: any;
 
@@ -24,18 +25,29 @@ export class MemberDetailComponent implements OnInit {
     this.route.params.forEach((urlParameters) => {
       this.memberId = urlParameters['id'];
     });
-    this.member = this.memberService.getMember(this.memberId);
+    this.memberService.getMember(this.memberId).subscribe(dataLastEmittedFromObserver => {
+      this.memberToDisplay = dataLastEmittedFromObserver;
+    });
   }
 
   editClick() {
     this.editClicked = true;
   }
 
-  updateProject(newName, newPosition, newSkill) {
+  updateMember(newName, newPosition, newSkill) {
     if (newName && newPosition && newSkill) {
       this.memberService.updateMember(this.memberToDisplay, newName, newPosition, newSkill);
+      this.editClicked = false;
     } else {
-      alert("All fields must have value");
+      this.updateFail = true;
+      this.editClicked = false;
+    }
+  }
+
+  beginDeletingMember() {
+    if (confirm("Are you sure you want to kick this member off the team?")) {
+      this.memberService.deleteMember(this.memberToDisplay);
+      this.router.navigate(['members']);
     }
   }
 }

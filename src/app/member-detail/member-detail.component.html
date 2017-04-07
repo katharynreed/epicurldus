@@ -1,3 +1,25 @@
-<p>
-  member-detail works!
-</p>
+<div class="container">
+  <div class="fail" *ngIf="updateFail">
+    <h3>Please enter all required information.</h3>
+  </div>
+
+  <h1>{{memberToDisplay.name}}</h1>
+
+  <button class="btn" (click)="editClick()">Edit Team Member</button>
+  <button class="btn" (click)="beginDeletingMember()">Kick 'em off the Team</button>
+
+  <div *ngIf="editClicked">
+    <label>Member Name:</label>
+    <input #newName value={{memberToDisplay.name}}><br>
+    <label>Member Position:</label>
+    <select class="btn" #newPosition>
+      <option value="Lead">Lead</option>
+      <option value="Second">Second</option>
+      <option value="Third">Third (or Second Skip)</option>
+      <option value="Skip">Skip</option>
+    </select><br>
+    <label>Member Skill:</label>
+    <input #newSkill value={{memberToDisplay.skill}}><br>
+    <button class="btn" (click)="updateMember(newName.value, newPosition.value, newSkill.value); newName.value=''; newSkill.value=''">Update Member Information</button>
+  </div>
+</div>

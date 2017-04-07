@@ -18,9 +18,9 @@ export class MemberService {
     return this.angularFire.database.object('members/' + memberId);
   }
 
-  updateMember(localUpdatedMember, newName, newSkill, newPosition) {
-    let memberEntryInFirebase = this.getMember(localUpdatedMember.$key);
-    memberEntryInFirebase.update({name: localUpdatedMember.name, skill: localUpdatedMember.skill, detail: localUpdatedMember.detail});
+  updateMember(localUpdatedMember, newName, newPosition, newSkill) {
+    var memberEntryInFirebase = this.getMember(localUpdatedMember.$key);
+    memberEntryInFirebase.update({name: newName, skill: newSkill, position: newPosition});
   }
 
   newMember(newMember: Member) {
