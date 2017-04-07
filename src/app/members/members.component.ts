@@ -33,7 +33,9 @@ export class MembersComponent implements OnInit {
   }
 
   showNewMemberForm(){
-    this.newMemberClicked = true;
+    if (confirm("Are you an admin? Don't lie.")) {
+      this.newMemberClicked = true;
+    }
   }
 
   submitNewMember(newName, newPosition, newSkill){

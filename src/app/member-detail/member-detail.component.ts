@@ -31,7 +31,9 @@ export class MemberDetailComponent implements OnInit {
   }
 
   editClick() {
-    this.editClicked = true;
+    if (confirm("Are you an admin? Don't lie.")) {
+      this.editClicked = true;
+    }
   }
 
   updateMember(newName, newPosition, newSkill) {
@@ -45,9 +47,11 @@ export class MemberDetailComponent implements OnInit {
   }
 
   beginDeletingMember() {
-    if (confirm("Are you sure you want to kick this member off the team?")) {
-      this.memberService.deleteMember(this.memberToDisplay);
-      this.router.navigate(['members']);
+    if (confirm("Are you an admin? Don't lie.")) {
+      if (confirm("Are you sure you want to kick this member off the team?")) {
+        this.memberService.deleteMember(this.memberToDisplay);
+        this.router.navigate(['members']);
+      }
     }
   }
 }
