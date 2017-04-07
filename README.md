@@ -1,4 +1,4 @@
-# Breakfast Club
+# Epicurldus
 
 Have you ever wanted to play professional curling? Neither have I! But regardless of our wants and desires, it looks like Epicodus has developed it's own in-house curling team! Team members can be accessed and assessed by their skills (as abstract as those skills may be, seeing as none of them are really that into curling).
 
