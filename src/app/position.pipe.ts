@@ -13,7 +13,7 @@ export class PositionPipe implements PipeTransform {
       var output: Member[] = [];
       if (desiredPosition === "lead"){
         for (var i = 0; i < input.length; i++) {
-          if(input[i].position === "lead" || "Lead") {
+          if(input[i].position === "Lead") {
             output.push(input[i]);
           }
         }
@@ -21,7 +21,7 @@ export class PositionPipe implements PipeTransform {
       }
       else if (desiredPosition === "second"){
         for (var i = 0; i < input.length; i++) {
-          if(input[i].position === "second" || "Second") {
+          if(input[i].position === "Second") {
             output.push(input[i]);
           }
         }
@@ -29,7 +29,7 @@ export class PositionPipe implements PipeTransform {
       }
       else if (desiredPosition === "third"){
         for (var i = 0; i < input.length; i++) {
-          if(input[i].position === "third" || "Third") {
+          if(input[i].position === "Third") {
             output.push(input[i]);
           }
         }
@@ -37,7 +37,7 @@ export class PositionPipe implements PipeTransform {
       }
       else if (desiredPosition === "skip"){
         for (var i = 0; i < input.length; i++) {
-          if(input[i].position === "skip" || "Skip") {
+          if(input[i].position === "Skip") {
             output.push(input[i]);
           }
         }

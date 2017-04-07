@@ -26,7 +26,7 @@ export class MembersComponent implements OnInit {
 
   goToDetailPage(clickedMember) {
    this.router.navigate(['member', clickedMember.$key]);
- };
+ }
 
   onChange(optionFromMenu) {
     this.filterByPosition = optionFromMenu;
