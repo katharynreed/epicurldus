@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Member } from './member.model';
-import { routing } from './app.routing';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Injectable()
@@ -19,12 +18,17 @@ export class MemberService {
     return this.angularFire.database.object('members/' + memberId);
   }
 
-  updateMember(localUpdatedMember) {
-    let frameEntryInFirebase = this.getMember(localUpdatedMember.$key);
-    frameEntryInFirebase.update({name: localUpdatedMember.name, skill: localUpdatedMember.skill, detail: localUpdatedMember.detail});
+  updateMember(localUpdatedMember, newName, newSkill, newPosition) {
+    let memberEntryInFirebase = this.getMember(localUpdatedMember.$key);
+    memberEntryInFirebase.update({name: localUpdatedMember.name, skill: localUpdatedMember.skill, detail: localUpdatedMember.detail});
   }
 
   newMember(newMember: Member) {
     this.members.push(newMember);
+  }
+
+  deleteMember(memberToDelete) {
+    let memberEntryInFirebase = this.getMember(memberToDelete.$key);
+    memberEntryInFirebase.remove();
   }
 }

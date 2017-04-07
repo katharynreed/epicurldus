@@ -12,9 +12,12 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 })
 export class MembersComponent implements OnInit {
 
-  constructor(private router: Router) {}
+  members: FirebaseListObservable<any[]>;
+
+  constructor(private router: Router, private memberService: MemberService) {}
 
   ngOnInit() {
+    this.members = this.memberService.getMembers();
   }
 
   goToDetailPage(clickedMember) {
