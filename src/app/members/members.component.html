@@ -15,7 +15,12 @@
   <label>New Member Name:</label>
   <input #newName><br>
   <label>Member Position:</label>
-  <input #newPosition><br>
+  <select class="btn" #newPosition>
+    <option value="Lead">Lead</option>
+    <option value="Second">Second</option>
+    <option value="Third">Third (or Second Skip)</option>
+    <option value="Skip">Skip</option>
+  </select><br>
   <label>Member Skill:</label>
   <input #newSkill><br>
   <button class="btn" (click)="submitNewMember(newName.value, newPosition.value, newSkill.value); newName.value=''; newPosition.value=''; newSkill.value='';">Submit New Member</button>
