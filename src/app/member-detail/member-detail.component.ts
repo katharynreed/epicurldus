@@ -13,7 +13,9 @@ import { Router } from '@angular/router';
 })
 
 export class MemberDetailComponent implements OnInit {
-  memberId: number = null;
+  memberId;
+  memberToDisplay;
+  editClicked = false;
   member: any;
 
   constructor(private router: Router, private route: ActivatedRoute, private location: Location, private memberService: MemberService) { }
@@ -25,8 +27,15 @@ export class MemberDetailComponent implements OnInit {
     this.member = this.memberService.getMember(this.memberId);
   }
 
-  goToDetailPage(clickedId) {
-    this.member = this.memberService.getMember(clickedId);
-    this.router.navigate(['member', clickedId]);
+  editClick() {
+    this.editClicked = true;
+  }
+
+  updateProject(newName, newPosition, newSkill) {
+    if (newName && newPosition && newSkill) {
+      this.memberService.updateMember(this.memberToDisplay, newName, newPosition, newSkill);
+    } else {
+      alert("All fields must have value");
+    }
   }
 }
