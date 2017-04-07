@@ -3,18 +3,20 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { MemberService } from './../member.service';
 import { Member } from '../member.model'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-member-detail',
   templateUrl: './member-detail.component.html',
-  styleUrls: ['./member-detail.component.css']
+  styleUrls: ['./member-detail.component.css'],
+  providers: [MemberService]
 })
 
 export class MemberDetailComponent implements OnInit {
   memberId: number = null;
   member: any;
 
-  constructor(private route: ActivatedRoute, private location: Location) { }
+  constructor(private router: Router, private route: ActivatedRoute, private location: Location, private memberService: MemberService) { }
 
   ngOnInit() {
     this.route.params.forEach((urlParameters) => {
