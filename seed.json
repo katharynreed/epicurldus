@@ -1,0 +1,25 @@
+{
+  "members":[
+    {
+      "name":"Brynna",
+      "position": "Second",
+      "skill":"Not taking the sport too seriously."
+    },
+    {
+      "name":"Keith",
+      "position":"Skip",
+      "skill":"Understanding the sport well with minimal effort and being able to explain it to the rest of us."
+    },
+    {
+      "name":"Katie",
+      "position": "Third",
+      "skill": "Being good at strategy and coffee breaks (for the team)."
+    },
+    {
+      "name":"Clayton",
+      "position": "Lead",
+      "skill": "Broad visiualzation of victory really brings the team to weirder heights."
+    }
+  ]
+
+}
