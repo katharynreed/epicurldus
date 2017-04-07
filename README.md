@@ -76,9 +76,9 @@ ng serve
   * `member.service`: service for CRUD functionalities on members on Firebase
   * `app.component`: base page with router-outlet
   * `''` route:
-    * `home.component`: home page
-    * `position.pipe`: custom pipe for filtering members on home page
+    * `homepage.component`: home page
   * `'about'` route: to static page giving information about the club
+  * `'members'` route: shows all members within curling club
   * `'member/:id'` route: dynamic route to view individual members details
     * `member-detail.component`: component for displaying all details of a member
 
