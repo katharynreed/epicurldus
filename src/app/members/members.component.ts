@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Member } from '../member.model';
+import { MemberService } from '../member.service';
+import { MemberDetailComponent } from '../member-detail/member-detail.component';
 import { Router } from '@angular/router';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
@@ -14,8 +17,8 @@ export class MembersComponent implements OnInit {
   ngOnInit() {
   }
 
-  goToDetailPage(clickedMember: Member) {
-   this.router.navigate(['member', clickedMember.id]);
+  goToDetailPage(clickedMember) {
+   this.router.navigate(['member', clickedMember.$key]);
  };
 
 }
