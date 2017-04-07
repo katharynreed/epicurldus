@@ -8,20 +8,38 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 @Component({
   selector: 'app-members',
   templateUrl: './members.component.html',
-  styleUrls: ['./members.component.css']
+  styleUrls: ['./members.component.css'],
+  providers: [MemberService]
 })
 export class MembersComponent implements OnInit {
-
-  members: FirebaseListObservable<any[]>;
+  members;
+  filterByPosition = "allPositions";
+  newMemberClicked = false;
 
   constructor(private router: Router, private memberService: MemberService) {}
 
   ngOnInit() {
-    this.members = this.memberService.getMembers();
+    this.memberService.getMembers().subscribe(dataLastEmittedFromObserver => {
+      this.members = dataLastEmittedFromObserver;
+    });
   }
 
   goToDetailPage(clickedMember) {
    this.router.navigate(['member', clickedMember.$key]);
  };
+
+  onChange(optionFromMenu) {
+    this.filterByPosition = optionFromMenu;
+  }
+
+  showNewMemberForm(){
+    this.newMemberClicked = true;
+  }
+
+  submitNewMember(newName, newPosition, newSkill){
+    var newMember = new Member(newName, newPosition, newSkill);
+    this.memberService.newMember(newMember);
+    this.newMemberClicked = false;
+  }
 
 }
